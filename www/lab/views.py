@@ -59,7 +59,7 @@ def index(request):
 
 def create_instance(ami='ami-456ac22c',
                     instance_type='t1.micro',
-                    key_name='aws_vcl_key',
+                    key_name='',
                     key_extension='.pem',
                     key_dir='~/.ssh',
                     group_name='default',
@@ -70,7 +70,7 @@ def create_instance(ami='ami-456ac22c',
                     cmd_shell=True,
                     login_user='ubuntu',
                     ssh_passwd=None,
-                    username = 'mitcheet',
+                    username = '',
                     classcode='iSchool',
                     azone = 'us-east-1c'):
     """
@@ -280,9 +280,9 @@ def terminate_instance(iid):
         time.sleep(5)
         instance.update()
 		
-def list_instances(ami='ami-456ac22c',
+def list_instances(ami='ami-',
                    instance_type='t1.micro',
-                   key_name='aws_vcl_key',
+                   key_name='',
                    key_extension='.pem',
                    key_dir='~/.ssh',
                    group_name='vcl_lab',
@@ -293,8 +293,8 @@ def list_instances(ami='ami-456ac22c',
                    cmd_shell=True,
                    login_user='ubuntu',
                    ssh_passwd=None,
-                   username = 'mitcheet',
-                   classcode='LBSC670',
+                   username = '',
+                   classcode='',
                    azone = 'us-east-1c'):         
 		ec2 = boto.connect_ec2()
 		reservations = ec2.get_all_instances(filters={'tag-value': username})
